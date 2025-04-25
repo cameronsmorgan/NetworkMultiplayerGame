@@ -18,6 +18,12 @@ public class PlayerMovement : NetworkBehaviour
         if (!isLocalPlayer) return;
 
         rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+
+        if (movementInput.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(movementInput.y, movementInput.x) * Mathf.Rad2Deg;
+            rb.rotation = angle;
+        }
     }
 
     // Hook this up to the "Move" UnityEvent in PlayerInput
