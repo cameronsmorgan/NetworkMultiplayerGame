@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 2905820449698910531}
   - component: {fileID: 3950343807105431985}
   - component: {fileID: 4194680560929195353}
+  - component: {fileID: 3548953812269306823}
   m_Layer: 0
   m_Name: Witch
-  m_TagString: Untagged
+  m_TagString: Witch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,3 +342,19 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &3548953812269306823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289148571140063150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f341f3462a9bfc4f9faaf0f712c4d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  role: 0
