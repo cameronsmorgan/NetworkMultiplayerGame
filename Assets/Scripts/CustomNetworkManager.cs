@@ -23,6 +23,23 @@ public class CustomNetworkManager : NetworkManager
         GameObject selectedPrefab = playerPrefabs[index];
 
         GameObject player = Instantiate(selectedPrefab);
+
+        PlayerRoleScript roleComponent = player.GetComponent<PlayerRoleScript>();
+        if (roleComponent != null)
+        {
+            if (index == 0)
+            {
+                roleComponent.role = PlayerRoleScript.Role.Witch;
+            }
+            else
+            {
+                roleComponent.role = PlayerRoleScript.Role.Goblin;
+            }
+        }
+        else
+        {
+            Debug.Log("Player prefab is missing in PlayerRoleScript");
+        }
         NetworkServer.AddPlayerForConnection(conn, player);
     }
 
