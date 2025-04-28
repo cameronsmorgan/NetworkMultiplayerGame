@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -115052106633374135}
   - component: {fileID: 3277564358390313644}
   - component: {fileID: 639515272387555630}
-  - component: {fileID: 858191441183887239}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Goblin
@@ -391,6 +390,7 @@ GameObject:
   - component: {fileID: 734816075504118891}
   - component: {fileID: 6352182861419587120}
   - component: {fileID: 2678416970338750193}
+  - component: {fileID: 858191441183887239}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -427,7 +427,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 3668160509394721476}
   m_CullTransparentMesh: 1
 --- !u!114 &6352182861419587120
---- !u!114 &858191441183887239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,27 +435,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3668160509394721476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 60bfd0a9d2e8865409a20d0f85544601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &2678416970338750193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +478,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 6352182861419587120}
+  m_TargetGraphic: {fileID: 858191441183887239}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -513,16 +494,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_GameObject: {fileID: 3058076728262209552}
+--- !u!114 &858191441183887239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668160509394721476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f341f3462a9bfc4f9faaf0f712c4d76, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  role: 1
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4423878953770394627
 GameObject:
   m_ObjectHideFlags: 0
