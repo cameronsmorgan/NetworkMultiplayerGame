@@ -1,20 +1,21 @@
 using UnityEngine;
 using Mirror;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class GoblinPickupScript : NetworkBehaviour
 {
-    [SerializeField] private Transform grabPoint;
+    [SerializeField] private Transform grabPosition;
     [SerializeField] private float pickupRadius = 1f;
     [SerializeField] private LayerMask objectLayer;
 
-    private GameObject grabbedObject;
+    [SyncVar] private GameObject grabbedObject; //  make this SyncVar to sync server/client
 
-    void Update()
+    private void Update()
     {
         if (!isLocalPlayer) return;
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             if (grabbedObject == null)
             {
@@ -44,22 +45,16 @@ public class GoblinPickupScript : NetworkBehaviour
         Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
         if (rb == null) return;
 
-        // Reset velocity to stop unintended motion
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-
-        // Disable physics simulation while held
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.simulated = false;
 
-
-        // Disable physics simulation while held
-        target.transform.SetParent(grabPoint);
+        target.transform.SetParent(grabPosition);
         target.transform.localPosition = Vector3.zero;
 
         grabbedObject = target;
 
-        RpcAttachObject(target, netIdentity);
+        RpcUpdateObjectPosition(target);
+        Debug.Log($"[SERVER] Picked up object: {target.name}");
     }
 
     [Command]
@@ -74,38 +69,37 @@ public class GoblinPickupScript : NetworkBehaviour
             rb.simulated = true;
         }
 
+        // Send the grabbedObject to the Rpc BEFORE setting it null
+        RpcClearObjectPosition(grabbedObject);
 
         grabbedObject.transform.SetParent(null);
+        Debug.Log($"[SERVER] Dropping object: {grabbedObject.name}");
 
-        GameObject dropped = grabbedObject;
         grabbedObject = null;
-
-        RpcDetachObject(dropped);
     }
 
     [ClientRpc]
-    void RpcAttachObject(GameObject obj, NetworkIdentity parentId)
+    void RpcUpdateObjectPosition(GameObject target)
     {
-        if (obj != null && parentId != null)
+        if (target != null)
         {
-            Transform grabTarget = parentId.transform.GetComponent<GoblinPickupScript>().grabPoint;
-            obj.transform.SetParent(grabTarget);
-            obj.transform.localPosition = Vector3.zero;
+            target.transform.SetParent(grabPosition);
+            target.transform.localPosition = Vector3.zero;
         }
     }
 
     [ClientRpc]
-    void RpcDetachObject(GameObject obj)
+    void RpcClearObjectPosition(GameObject target)
     {
-        if (obj != null)
+        if (target != null)
         {
-            obj.transform.SetParent(null);
+            target.transform.SetParent(null);
         }
     }
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, pickupRadius);
     }
 }
