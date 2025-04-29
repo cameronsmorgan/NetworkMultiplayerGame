@@ -2,23 +2,38 @@ using UnityEngine;
 using Mirror;
 public class ParcelSpawner : NetworkBehaviour
 {
-    [SerializeField] private GameObject parcelPrefab; // Assign in Inspector
-    [SerializeField] private Transform[] spawnPoints; // Optional multiple spawn points
+    [Header("Parcel Settings")]
+    public GameObject[] parcelPrefabs; // Assign in inspector
+    public Transform spawnPoint;
+    public float spawnInterval = 5f;
+
+    private float timer;
 
     public override void OnStartServer()
     {
-        base.OnStartServer();
+        timer = spawnInterval;
+    }
 
-        SpawnParcels();
+    void Update()
+    {
+        if (!isServer) return;
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 0f)
+        {
+            SpawnRandomParcel();
+            timer = spawnInterval;
+        }
     }
 
     [Server]
-    void SpawnParcels()
+    void SpawnRandomParcel()
     {
-        foreach (Transform spawnPoint in spawnPoints)
-        {
-            GameObject parcel = Instantiate(parcelPrefab, spawnPoint.position, Quaternion.identity);
-            NetworkServer.Spawn(parcel);
-        }
+        if (parcelPrefabs.Length == 0) return;
+
+        int index = Random.Range(0, parcelPrefabs.Length);
+        GameObject parcelInstance = Instantiate(parcelPrefabs[index], spawnPoint.position, Quaternion.identity);
+        NetworkServer.Spawn(parcelInstance);
     }
 }

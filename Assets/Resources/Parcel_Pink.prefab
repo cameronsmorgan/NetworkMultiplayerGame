@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4b66f21097323d44ab40669b2fb9c53d, type: 3}
   m_Color: {r: 0.4867924, g: 0.4399501, b: 0.4399501, a: 1}
   m_FlipX: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4245120290031251795}
   - component: {fileID: 4462265050356008135}
   m_Layer: 6
-  m_Name: Parcel
+  m_Name: Parcel_Pink
   m_TagString: Parcel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +341,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4b66f21097323d44ab40669b2fb9c53d, type: 3}
   m_Color: {r: 1, g: 0, b: 0.917655, a: 1}
   m_FlipX: 0
