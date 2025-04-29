@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3950343807105431985}
   - component: {fileID: 4194680560929195353}
   - component: {fileID: 3548953812269306823}
+  - component: {fileID: -3328052735159464512}
   m_Layer: 0
   m_Name: Witch
   m_TagString: Witch
@@ -120,7 +121,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6842088801888925852
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -358,3 +359,22 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   role: 0
+--- !u!114 &-3328052735159464512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289148571140063150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603c582a1cf34844d9681c50f7171d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  interactionRange: 1.5
+  conveyorLayer:
+    serializedVersion: 2
+    m_Bits: 8
