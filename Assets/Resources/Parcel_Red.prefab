@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8349405677517967165}
   - component: {fileID: 4932959498272055716}
   - component: {fileID: 1355654398286322302}
+  - component: {fileID: -4753981752018873996}
   m_Layer: 6
   m_Name: Parcel_Red
   m_TagString: Parcel
@@ -179,6 +180,22 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &-4753981752018873996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154325085689027009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6bfe50af0d0ceb4fa043ce2e91ffbea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  parcelType: 1
 --- !u!1 &5743025917952500727
 GameObject:
   m_ObjectHideFlags: 0

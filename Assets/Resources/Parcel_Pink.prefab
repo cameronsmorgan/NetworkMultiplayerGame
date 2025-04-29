@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 5692240922506890748}
   - component: {fileID: 4245120290031251795}
   - component: {fileID: 4462265050356008135}
+  - component: {fileID: 401979841512033872}
   m_Layer: 6
   m_Name: Parcel_Pink
   m_TagString: Parcel
@@ -266,6 +267,22 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &401979841512033872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237570810610063749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6bfe50af0d0ceb4fa043ce2e91ffbea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  parcelType: 0
 --- !u!1 &2527045884335584463
 GameObject:
   m_ObjectHideFlags: 0
