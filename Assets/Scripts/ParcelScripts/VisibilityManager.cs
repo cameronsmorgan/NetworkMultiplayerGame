@@ -11,7 +11,7 @@ public class VisibilityManager : NetworkBehaviour
     {
         base.OnStartClient();
 
-        var player = NetworkClient.localPlayer.GetComponent<PlayerRoleScript>();
+        var player = NetworkClient.localPlayer.GetComponent<PlayerRoleScript>();   //gets the player role script of the current player
 
         if (player != null && player.role == PlayerRoleScript.Role.Witch)
         {
