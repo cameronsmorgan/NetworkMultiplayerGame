@@ -11,7 +11,7 @@ public class ConveyorController : NetworkBehaviour
         if (!isLocalPlayer) return;
 
         var role = GetComponent<PlayerRoleScript>();
-        if (role == null || role.role != PlayerRoleScript.Role.Witch) return;
+        if (role == null || role.role != PlayerRoleScript.Role.Witch) return;   //checks for witch
 
         if (Input.GetKeyDown(KeyCode.E))
         {

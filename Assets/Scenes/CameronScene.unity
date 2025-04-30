@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &55293900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &132764927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,7 +1179,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &486485752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,7 +2174,7 @@ Transform:
   m_GameObject: {fileID: 710567463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: -1.62, z: -0.057778757}
+  m_LocalPosition: {x: 3.07, y: -3.71, z: -0.057778757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2562,7 +2562,9 @@ MonoBehaviour:
   - {fileID: 1237570810610063749, guid: 5f227290bc4737b408f76349e0e520d5, type: 3}
   - {fileID: 3154325085689027009, guid: e7fe94f18ed41f34385bda1049d50f4f, type: 3}
   spawnPoint: {fileID: 710567464}
-  spawnInterval: 20
+  spawnInterval: 5
+  ejectionForce: {x: 0, y: 2}
+  forceMode: 1
 --- !u!4 &1390253666
 Transform:
   m_ObjectHideFlags: 0
@@ -3005,7 +3007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1819153168
 MonoBehaviour:
   m_ObjectHideFlags: 0

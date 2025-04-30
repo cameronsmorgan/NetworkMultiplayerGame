@@ -9,16 +9,16 @@ public class DropOffPointScript : NetworkBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isServer) return;
+        if (!isServer) return;   //runs ONLY on server 
 
-        Parcel parcel = collision.gameObject.GetComponent<Parcel>();
+        Parcel parcel = collision.gameObject.GetComponent<Parcel>();   //gets parcel component from collided game object
         if (parcel != null && parcel.parcelType == acceptedParcelType)
         {
-            // Award points
+            
             ScoreManager.Instance.AddPoints(pointValue);
 
-            // Destroy parcel
-            NetworkServer.Destroy(parcel.gameObject);
+            
+            NetworkServer.Destroy(parcel.gameObject);  //destroys the parcel across network
         }
     }
 }

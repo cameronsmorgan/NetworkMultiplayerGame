@@ -18,7 +18,7 @@ public class PlayerRoleScript : NetworkBehaviour
 
         foreach (var dropOff in dropOffPoints)
         {
-            dropOff.UpdateVisibility(isGoblin);
+            dropOff.UpdateVisibility(isGoblin);   //hides drop off points for goblins
         }
     }
 }

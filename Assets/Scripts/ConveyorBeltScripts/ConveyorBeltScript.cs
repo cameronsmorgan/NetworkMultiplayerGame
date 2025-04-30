@@ -9,9 +9,9 @@ public class ConveyorBeltScript : NetworkBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!isServer) return; // Make sure logic runs on server only
+        if (!isServer) return; //  ensures logic runs on server only
 
-        // Check if object is a parcel by tag or component
+        
         if (other.CompareTag("Parcel") && other.attachedRigidbody != null)
         {
             other.attachedRigidbody.linearVelocity = moveDirection.normalized * speed;
@@ -24,13 +24,13 @@ public class ConveyorBeltScript : NetworkBehaviour
 
         if (other.CompareTag("Parcel") && other.attachedRigidbody != null)
         {
-            other.attachedRigidbody.linearVelocity = Vector2.zero;
+            other.attachedRigidbody.linearVelocity = Vector2.zero;    //velocity of the object resets when removed from trigger 
         }
     }
 
-    [Command(requiresAuthority = false)]
+    [Command(requiresAuthority = false)]   //allows any client to run this command
     public void CmdFlipDirection()
     {
-        moveDirection *= -1;
+        moveDirection *= -1;      //flips direction of conveyor
     }
 }

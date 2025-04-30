@@ -9,7 +9,7 @@ public class GoblinPickupScript : NetworkBehaviour
     [SerializeField] private float pickupRadius = 1f;
     [SerializeField] private LayerMask objectLayer;
 
-    [SyncVar] private GameObject grabbedObject; //  make this SyncVar to sync server/client
+    [SyncVar] private GameObject grabbedObject; //Syncvar keeps the grabbed object synched across network
 
     private void Update()
     {
@@ -33,7 +33,7 @@ public class GoblinPickupScript : NetworkBehaviour
         Collider2D hit = Physics2D.OverlapCircle(transform.position, pickupRadius, objectLayer);
         if (hit != null)
         {
-            CmdPickupObject(hit.gameObject);
+            CmdPickupObject(hit.gameObject);    //if an object is found, the command function is called to handle pickup logic on the server
         }
     }
 
@@ -45,15 +45,15 @@ public class GoblinPickupScript : NetworkBehaviour
         Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
         if (rb == null) return;
 
-        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.bodyType = RigidbodyType2D.Kinematic;    //turns the object's physics off to prevent falling and other physics issues
         rb.simulated = false;
 
-        target.transform.SetParent(grabPosition);
-        target.transform.localPosition = Vector3.zero;
+        target.transform.SetParent(grabPosition);  //sets the parent to the grabPosition object
+        target.transform.localPosition = Vector3.zero;  //positions the object at the grabPosition
 
         grabbedObject = target;
 
-        RpcUpdateObjectPosition(target);
+        RpcUpdateObjectPosition(target);     //informs all clients to update the objects position
         Debug.Log($"[SERVER] Picked up object: {target.name}");
     }
 
@@ -65,21 +65,21 @@ public class GoblinPickupScript : NetworkBehaviour
         Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.bodyType = RigidbodyType2D.Dynamic;      //re-enables the objects physics
             rb.simulated = true;
         }
 
-        // Send the grabbedObject to the Rpc BEFORE setting it null
-        RpcClearObjectPosition(grabbedObject);
+                  
+        RpcClearObjectPosition(grabbedObject);    //tells clients to update the objects position
 
-        grabbedObject.transform.SetParent(null);
+        grabbedObject.transform.SetParent(null);  //removes the parent
         Debug.Log($"[SERVER] Dropping object: {grabbedObject.name}");
 
         grabbedObject = null;
     }
 
     [ClientRpc]
-    void RpcUpdateObjectPosition(GameObject target)
+    void RpcUpdateObjectPosition(GameObject target)    //executes on all clients
     {
         if (target != null)
         {

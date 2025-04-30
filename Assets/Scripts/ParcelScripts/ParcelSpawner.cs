@@ -7,6 +7,10 @@ public class ParcelSpawner : NetworkBehaviour
     public Transform spawnPoint;
     public float spawnInterval = 5f;
 
+    [Header("Force Settings")]
+    public Vector2 ejectionForce = new Vector2(2f, 0f); // Change direction/strength as needed
+    public ForceMode2D forceMode = ForceMode2D.Impulse;
+
     private float timer;
 
     public override void OnStartServer()
@@ -35,5 +39,12 @@ public class ParcelSpawner : NetworkBehaviour
         int index = Random.Range(0, parcelPrefabs.Length);
         GameObject parcelInstance = Instantiate(parcelPrefabs[index], spawnPoint.position, Quaternion.identity);
         NetworkServer.Spawn(parcelInstance);
+
+        // Apply force if Rigidbody2D exists
+        Rigidbody2D rb = parcelInstance.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.AddForce(ejectionForce, forceMode);
+        }
     }
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DropOffVisibility : NetworkBehaviour
 {
-    [Header("Assign the visual GameObject (e.g., the sprite holder) here")]
+    [Header("the visual GameObject")]
     public GameObject visual;
 
     public void UpdateVisibility(bool isGoblin)
     {
         if (visual == null)
         {
-            Debug.LogWarning($"No visual assigned on {gameObject.name}");
+            Debug.LogWarning("No visual assigned");
             return;
         }
 
