@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4194680560929195353}
   - component: {fileID: 3548953812269306823}
   - component: {fileID: -3328052735159464512}
+  - component: {fileID: -2147605720124126219}
   m_Layer: 0
   m_Name: Witch
   m_TagString: Witch
@@ -378,3 +379,18 @@ MonoBehaviour:
   conveyorLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &-2147605720124126219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289148571140063150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b08a97556f6374f8bccb18f36aed65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0

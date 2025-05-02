@@ -9,18 +9,26 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject helpPanel;
 
     [Header("Scene Names")]
-    public string homeSceneName = "HomeScene";         // Change to your home/start screen
-    public string nextLevelSceneName = "NextLevel";    // Change to your next level
-    public string firstLevelSceneName = "Level1";      // Change to your first level
+    public string homeSceneName = "HomeScene";
+    public string nextLevelSceneName = "NextLevel";
+    public string firstLevelSceneName = "Level1";
 
-    // Pause the game and show pause panel
+    private NetworkPlayer localPlayer;
+
+    private void Start()
+    {
+        if (NetworkClient.connection != null && NetworkClient.connection.identity != null)
+        {
+            localPlayer = NetworkClient.connection.identity.GetComponent<NetworkPlayer>();
+        }
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
         pausePanel.SetActive(true);
     }
 
-    // Resume game from pause panel
     public void ResumeGame()
     {
         Time.timeScale = 1f;
@@ -28,68 +36,60 @@ public class PauseMenuManager : MonoBehaviour
         helpPanel.SetActive(false);
     }
 
-    // From pause to help
     public void OpenHelpPanel()
     {
         pausePanel.SetActive(false);
         helpPanel.SetActive(true);
     }
 
-    // From help back to pause panel
     public void BackToPausePanel()
     {
         helpPanel.SetActive(false);
         pausePanel.SetActive(true);
     }
 
-    // From help back to gameplay
     public void BackToGame()
     {
         Time.timeScale = 1f;
         helpPanel.SetActive(false);
     }
 
-    // Restart current level
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        if (NetworkServer.active)
+        if (localPlayer != null)
         {
-            NetworkManager.singleton.ServerChangeScene(SceneManager.GetActiveScene().name);
+            localPlayer.CmdRequestRestartLevel();
         }
     }
 
-    // Load next level
     public void NextLevel()
     {
         Time.timeScale = 1f;
-        if (NetworkServer.active)
+        if (localPlayer != null)
         {
-            NetworkManager.singleton.ServerChangeScene(nextLevelSceneName);
+            localPlayer.CmdRequestSceneChange(nextLevelSceneName);
         }
     }
 
-    // Return to home/start screen
     public void GoHome()
     {
         Time.timeScale = 1f;
-        if (NetworkServer.active)
+        if (localPlayer != null)
         {
-            NetworkManager.singleton.ServerChangeScene(homeSceneName);
+            localPlayer.CmdRequestSceneChange(homeSceneName);
         }
     }
 
-    // Play button on Start Screen to load first level
     public void PlayGame()
     {
         Time.timeScale = 1f;
-        if (NetworkServer.active)
+        if (localPlayer != null)
         {
-            NetworkManager.singleton.ServerChangeScene(firstLevelSceneName);
+            localPlayer.CmdRequestSceneChange(firstLevelSceneName);
         }
     }
 
-    // Quit the game
     public void QuitGame()
     {
         Application.Quit();
