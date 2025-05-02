@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 229d50e5204c95b4b9be876b9f101f96
+guid: 8872d557b21cdfe4580a23ae8adf317d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3993759949094882031
-    second: goblin spritesheet_0
+      213: 5964917558017936304
+    second: goblin spritesheet 1_0
   - first:
-      213: 5593669991364003403
-    second: goblin spritesheet_1
+      213: 6895397054747573392
+    second: goblin spritesheet 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: goblin spritesheet_0
+      name: goblin spritesheet 1_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 2081
-        width: 210
-        height: 219
+        x: 1214
+        y: 2078
+        width: 202
+        height: 218
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fea8bfb838fac6730800000000000000
-      internalID: 3993759949094882031
+      spriteID: 0bb46206ae4a7c250800000000000000
+      internalID: 5964917558017936304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: goblin spritesheet_1
+      name: goblin spritesheet 1_1
       rect:
         serializedVersion: 2
-        x: 218
-        y: 2077
-        width: 210
-        height: 219
+        x: 1422
+        y: 2082
+        width: 202
+        height: 218
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b46830a7835b0ad40800000000000000
-      internalID: 5593669991364003403
+      spriteID: 09cf081861f51bf50800000000000000
+      internalID: 6895397054747573392
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 996bedc91d296ff4c8038dad7bab6c57
+    spriteID: ba43097c13cf1334d8cb886e20355722
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      goblin spritesheet_0: 3993759949094882031
-      goblin spritesheet_1: 5593669991364003403
+      goblin spritesheet 1_0: 5964917558017936304
+      goblin spritesheet 1_1: 6895397054747573392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

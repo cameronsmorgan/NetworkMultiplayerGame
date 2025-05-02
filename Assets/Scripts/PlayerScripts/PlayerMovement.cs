@@ -21,8 +21,12 @@ public class PlayerMovement : NetworkBehaviour
 
         if (movementInput.sqrMagnitude > 0.01f)
         {
-            float angle = Mathf.Atan2(movementInput.y, movementInput.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
+            if (movementInput.x != 0)
+            {
+                Vector3 newScale = transform.localScale;
+                newScale.x = Mathf.Sign(movementInput.x) * Mathf.Abs(newScale.x);
+                transform.localScale = newScale;
+            }
         }
     }
 
