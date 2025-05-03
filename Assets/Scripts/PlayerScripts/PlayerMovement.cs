@@ -20,7 +20,6 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        // Flip sprite based on direction
         if (movementInput.x != 0)
         {
             Vector3 newScale = transform.localScale;
@@ -28,7 +27,7 @@ public class PlayerMovement : NetworkBehaviour
             transform.localScale = newScale;
         }
 
-        // Set animation
+        //animation 
         bool isWalking = movementInput.sqrMagnitude > 0.01f;
         animator.SetBool("isWalking", isWalking);
 
@@ -42,7 +41,6 @@ public class PlayerMovement : NetworkBehaviour
         rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
     }
 
-    // Hook this up to the "Move" UnityEvent in PlayerInput
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
         if (!isLocalPlayer) return;
