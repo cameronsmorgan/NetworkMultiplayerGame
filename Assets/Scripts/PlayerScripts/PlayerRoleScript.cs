@@ -12,7 +12,7 @@ public class PlayerRoleScript : NetworkBehaviour
         base.OnStartLocalPlayer();
 
         // Find all DropOffVisibility objects in the scene
-        DropOffVisibility[] dropOffPoints = FindObjectsOfType<DropOffVisibility>();
+        DropOffVisibility[] dropOffPoints = FindObjectsOfType<DropOffVisibility>(); 
 
         bool isGoblin = role == Role.Goblin;
 

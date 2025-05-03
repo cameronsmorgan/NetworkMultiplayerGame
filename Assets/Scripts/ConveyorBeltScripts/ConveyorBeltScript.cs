@@ -7,6 +7,14 @@ public class ConveyorBeltScript : NetworkBehaviour
 
     public float speed = 2f;
 
+
+    private SpriteRenderer sr;
+
+    void Awake()
+    {
+        sr=GetComponent<SpriteRenderer>();
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (!isServer) return; //  ensures logic runs on server only
@@ -31,6 +39,17 @@ public class ConveyorBeltScript : NetworkBehaviour
     [Command(requiresAuthority = false)]   //allows any client to run this command
     public void CmdFlipDirection()
     {
-        moveDirection *= -1;      //flips direction of conveyor
+        moveDirection *= -1;      //flips direction 
+
+        Debug.Log("DIRECTION CHANGED"); 
+
+        FlipSprite(moveDirection.x);
     }
+
+    void FlipSprite(float direction )
+    {
+        if (sr != null)
+            sr.flipX = direction < 0;
+    }
+
 }

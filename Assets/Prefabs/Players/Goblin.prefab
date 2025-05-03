@@ -325,7 +325,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  moveSpeed: 5
+  moveSpeed: 3
+  animator: {fileID: 0}
 --- !u!114 &3277564358390313644
 MonoBehaviour:
   m_ObjectHideFlags: 0
