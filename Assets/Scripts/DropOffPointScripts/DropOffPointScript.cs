@@ -1,6 +1,5 @@
 using UnityEngine;
 using Mirror;
-using UnityEngine.SceneManagement;
 
 public class DropOffPointScript : NetworkBehaviour
 {
@@ -9,16 +8,21 @@ public class DropOffPointScript : NetworkBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isServer) return;   //runs ONLY on server 
+        if (!isServer) return;
 
-        Parcel parcel = collision.gameObject.GetComponent<Parcel>();   //gets parcel component from collided game object
+        Parcel parcel = collision.gameObject.GetComponent<Parcel>();
         if (parcel != null && parcel.parcelType == acceptedParcelType)
         {
-            
-            ScoreManager.Instance.AddPoints(pointValue);
+            // Just in case ConveyorMover is still trying to move it
+            ConveyorMover mover = parcel.GetComponent<ConveyorMover>();
+            if (mover != null)
+            {
+                mover.PauseMovement(); // stops motion immediately
+            }
 
-            
-            NetworkServer.Destroy(parcel.gameObject);  //destroys the parcel across network
+            ScoreManager.Instance.AddPoints(pointValue);
+            NetworkServer.Destroy(parcel.gameObject);
         }
     }
 }
+

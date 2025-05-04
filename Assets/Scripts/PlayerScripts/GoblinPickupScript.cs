@@ -45,17 +45,31 @@ public class GoblinPickupScript : NetworkBehaviour
         Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
         if (rb == null) return;
 
-        rb.bodyType = RigidbodyType2D.Kinematic;    //turns the object's physics off to prevent falling and other physics issues
+        // Stop Conveyor
+        ConveyorMover mover = target.GetComponent<ConveyorMover>();
+        if (mover != null)
+        {
+            mover.PauseMovement();
+        }
+
+        rb.bodyType = RigidbodyType2D.Kinematic;
         rb.simulated = false;
 
-        target.transform.SetParent(grabPosition);  //sets the parent to the grabPosition object
-        target.transform.localPosition = Vector3.zero;  //positions the object at the grabPosition
+        target.transform.SetParent(grabPosition);
+        target.transform.localPosition = Vector3.zero;
 
         grabbedObject = target;
 
-        RpcUpdateObjectPosition(target);     //informs all clients to update the objects position
+        RpcUpdateObjectPosition(target);
         Debug.Log($"[SERVER] Picked up object: {target.name}");
+
+        Parcel parcel = target.GetComponent<Parcel>();
+        if (parcel != null)
+        {
+            parcel.isPickedUp = true;
+        }
     }
+
 
     [Command]
     void CmdDropObject()
@@ -65,18 +79,24 @@ public class GoblinPickupScript : NetworkBehaviour
         Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.bodyType = RigidbodyType2D.Dynamic;      //re-enables the objects physics
+            rb.bodyType = RigidbodyType2D.Dynamic;
             rb.simulated = true;
         }
 
-                  
-        RpcClearObjectPosition(grabbedObject);    //tells clients to update the objects position
+        // Resume Conveyor
+        ConveyorMover mover = grabbedObject.GetComponent<ConveyorMover>();
+        if (mover != null)
+        {
+            mover.ResumeMovement();
+        }
 
-        grabbedObject.transform.SetParent(null);  //removes the parent
+        RpcClearObjectPosition(grabbedObject);
+        grabbedObject.transform.SetParent(null);
+
         Debug.Log($"[SERVER] Dropping object: {grabbedObject.name}");
-
         grabbedObject = null;
     }
+
 
     [ClientRpc]
     void RpcUpdateObjectPosition(GameObject target)    //executes on all clients
