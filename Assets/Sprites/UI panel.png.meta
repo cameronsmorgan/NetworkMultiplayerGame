@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff9cc86d5aee18a4daefdb6acd74d7ea
+guid: 1a2c160f2573aeb4f9c78df2438c6dee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7647562855149458701
-    second: exit-button-2232939_0
+      213: 2964531732080088131
+    second: UI panel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exit-button-2232939_0
+      name: UI panel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 800
-        height: 506
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fa285d0a166ed590800000000000000
-      internalID: -7647562855149458701
+      spriteID: 344d10057e1242920800000000000000
+      internalID: 2964531732080088131
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      exit-button-2232939_0: -7647562855149458701
+      UI panel_0: 2964531732080088131
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

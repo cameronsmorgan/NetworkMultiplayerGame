@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: ff9cc86d5aee18a4daefdb6acd74d7ea
+guid: 21642a1e03f4b2041bf6a419816c40ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7647562855149458701
-    second: exit-button-2232939_0
+      213: -8191739510646017925
+    second: buttons_0
+  - first:
+      213: 3713549098536957005
+    second: buttons_1
+  - first:
+      213: -480254276019886394
+    second: buttons_2
+  - first:
+      213: -6460607209241108654
+    second: buttons_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +105,71 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: exit-button-2232939_0
+      name: buttons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 800
-        height: 506
+        x: 727
+        y: 2159
+        width: 254
+        height: 135
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fa285d0a166ed590800000000000000
-      internalID: -7647562855149458701
+      spriteID: b7079671158115e80800000000000000
+      internalID: -8191739510646017925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_1
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 2171
+        width: 118
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44744ada3d298330800000000000000
+      internalID: 3713549098536957005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_2
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 2174
+        width: 118
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c6e8fbc74bc559f0800000000000000
+      internalID: -480254276019886394
       vertices: []
       indices: 
       edges: []
@@ -138,7 +178,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5c315ccb9a9352641a4426c42f17ee9e
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +188,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      exit-button-2232939_0: -7647562855149458701
+      buttons_0: -8191739510646017925
+      buttons_1: 3713549098536957005
+      buttons_2: -480254276019886394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
